@@ -24,6 +24,7 @@ def analyze_code(code_snippet):
     with open("temp_code.py", "w") as temp_file:
         temp_file.write(code_snippet)
     pylint_result = subprocess.getoutput("pylint temp_code.py --disable=R,C --score=no")
+    print("pylint_result-->",pylint_result)
     feedback.append("\n📏 Style Feedback:\n" + pylint_result)
 
     # Run bandit for security analysis
